@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Code, Lightbulb, Users, Zap } from "lucide-react";
+import { aboutContent } from "@/data/contents";
 
 const About = () => {
   const skills = [
@@ -42,7 +43,7 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="animate-fade-in">
               <h3 className="text-2xl font-semibold mb-6 text-primary">
-                Who am I?
+                {aboutContent.subtitle}
               </h3>
               <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
                 <p>
@@ -65,12 +66,12 @@ const About = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                <Button className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary">
+                <Button className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary cursor-pointer">
                   Contact Me
                 </Button>
                 <Button
                   variant="outline"
-                  className="hover:bg-primary hover:text-primary-foreground"
+                  className="hover:bg-primary hover:text-primary-foreground cursor-pointer"
                 >
                   Subscribe to Channel
                 </Button>
@@ -96,22 +97,22 @@ const About = () => {
                         Years Experience
                       </div>
                     </div>
-                    <div className="text-center p-4 bg-background rounded-lg">
+                    {/* <div className="text-center p-4 bg-background rounded-lg">
                       <div className="text-2xl font-bold text-primary mb-1">
                         100+
                       </div>
                       <div className="text-sm text-muted-foreground">
                         Projects Completed
                       </div>
-                    </div>
-                    <div className="text-center p-4 bg-background rounded-lg">
+                    </div> */}
+                    {/* <div className="text-center p-4 bg-background rounded-lg">
                       <div className="text-2xl font-bold text-primary mb-1">
                         50+
                       </div>
                       <div className="text-sm text-muted-foreground">
                         Happy Clients
                       </div>
-                    </div>
+                    </div> */}
                     <div className="text-center p-4 bg-background rounded-lg">
                       <div className="text-2xl font-bold text-primary mb-1">
                         24/7

@@ -2,54 +2,57 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, Play } from "lucide-react";
+import { projects } from "@/data/contents";
+import Image from "next/image";
+import Link from "next/link";
 
 const Portfolio = () => {
-  const projects = [
-    {
-      title: "E-commerce Platform",
-      description:
-        "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and inventory management.",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: true,
-    },
-    {
-      title: "Task Management App",
-      description:
-        "Collaborative task management application with real-time updates, team collaboration features, and advanced filtering.",
-      image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      technologies: ["React", "TypeScript", "Firebase", "Material-UI"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: true,
-    },
-    {
-      title: "Weather Dashboard",
-      description:
-        "Beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-      image:
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      technologies: ["Vue.js", "OpenWeather API", "Chart.js", "CSS3"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false,
-    },
-    {
-      title: "Portfolio Website",
-      description:
-        "Responsive portfolio website built with modern web technologies, featuring smooth animations and optimized performance.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
-      liveUrl: "#",
-      githubUrl: "#",
-      featured: false,
-    },
-  ];
+  // const projects = [
+  //   {
+  //     title: "E-commerce Platform",
+  //     description:
+  //       "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and inventory management.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+  //     technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
+  //     liveUrl: "#",
+  //     githubUrl: "#",
+  //     featured: true,
+  //   },
+  //   {
+  //     title: "Task Management App",
+  //     description:
+  //       "Collaborative task management application with real-time updates, team collaboration features, and advanced filtering.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+  //     technologies: ["React", "TypeScript", "Firebase", "Material-UI"],
+  //     liveUrl: "#",
+  //     githubUrl: "#",
+  //     featured: true,
+  //   },
+  //   {
+  //     title: "Weather Dashboard",
+  //     description:
+  //       "Beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
+  //     technologies: ["Vue.js", "OpenWeather API", "Chart.js", "CSS3"],
+  //     liveUrl: "#",
+  //     githubUrl: "#",
+  //     featured: false,
+  //   },
+  //   {
+  //     title: "Portfolio Website",
+  //     description:
+  //       "Responsive portfolio website built with modern web technologies, featuring smooth animations and optimized performance.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+  //     technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+  //     liveUrl: "#",
+  //     githubUrl: "#",
+  //     featured: false,
+  //   },
+  // ];
 
   const featuredProjects = projects.filter((p) => p.featured);
   const otherProjects = projects.filter((p) => !p.featured);
@@ -83,7 +86,7 @@ const Portfolio = () => {
           </div>
 
           {/* Other projects */}
-          <div>
+          {/* <div>
             <h3 className="text-2xl font-semibold mb-8 text-center">
               Other Projects
             </h3>
@@ -92,13 +95,15 @@ const Portfolio = () => {
                 <ProjectCard key={index} project={project} />
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* CTA */}
           <div className="text-center mt-16 animate-fade-in">
-            <Button className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary transform hover:scale-105 transition-all duration-300">
+            <Button className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary transform hover:scale-105 transition-all duration-300 cursor-pointer">
               <Github className="mr-2 h-5 w-5" />
-              View All Projects on GitHub
+              <Link href={"https://github.com/iAthman83"}>
+                View All Projects on GitHub
+              </Link>
             </Button>
           </div>
         </div>
@@ -120,9 +125,11 @@ const ProjectCard = ({
     }`}
   >
     <div className="relative overflow-hidden">
-      <img
+      <Image
         src={project.image}
         alt={project.title}
+        width={500}
+        height={300}
         className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -157,11 +164,11 @@ const ProjectCard = ({
       </div>
 
       <div className="flex gap-3">
-        <Button size="sm" className="flex-1">
+        <Button size="sm" className="flex-1 cursor-pointer">
           <Play className="mr-2 h-4 w-4" />
           Live Demo
         </Button>
-        <Button size="sm" variant="outline" className="flex-1">
+        <Button size="sm" variant="outline" className="flex-1 cursor-pointer">
           <Github className="mr-2 h-4 w-4" />
           Code
         </Button>

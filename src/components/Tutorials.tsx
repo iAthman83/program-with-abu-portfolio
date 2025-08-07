@@ -6,27 +6,27 @@ import { Play, Users, Calendar, Clock } from "lucide-react";
 const Tutorials = () => {
   const tutorials = [
     {
-      title: "React Pass forwardRef Hook Between Multiple Components",
+      title: "Securing Routes in Your React App with Firebase",
       description:
-        "Learn how to effectively use React's forwardRef hook to pass refs through multiple component layers.",
+        "Learn how to secure protected routes in your app using Firebase authentication",
       thumbnail:
         "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=340&fit=crop",
-      duration: "15:32",
-      views: "12.5K",
-      publishedAt: "2 weeks ago",
-      tags: ["React", "Hooks", "Advanced"],
+      duration: "1:07:00",
+      views: "3K",
+      publishedAt: "2 years ago",
+      tags: ["React", "Firebase"],
       featured: true,
     },
     {
-      title: "Building a Full Stack App with Next.js 14",
+      title: "ReactJS Redux Crash Course: Build a Simple Todo List",
       description:
-        "Complete tutorial series on building a modern web application with the latest Next.js features.",
+        "Learn how to build a simple todo list app using ReactJS and Redux",
       thumbnail:
         "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=340&fit=crop",
-      duration: "45:20",
-      views: "28.3K",
-      publishedAt: "1 month ago",
-      tags: ["Next.js", "Full Stack", "TypeScript"],
+      duration: "1:09:53",
+      views: "2K",
+      publishedAt: "2 years ago",
+      tags: ["React.JS", "Redux"],
       featured: true,
     },
     {
@@ -102,7 +102,7 @@ const Tutorials = () => {
           {/* Channel stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 animate-fade-in">
             <Card className="p-6 text-center bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
-              <div className="text-3xl font-bold text-primary mb-2">765</div>
+              <div className="text-3xl font-bold text-primary mb-2">700+</div>
               <div className="text-sm text-muted-foreground">Subscribers</div>
             </Card>
             <Card className="p-6 text-center bg-gradient-to-br from-accent/10 to-primary/10 border-accent/20">
@@ -132,7 +132,7 @@ const Tutorials = () => {
           </div>
 
           {/* Other tutorials */}
-          <div>
+          {/* <div>
             <h3 className="text-2xl font-semibold mb-8 text-center">
               Latest Tutorials
             </h3>
@@ -141,7 +141,7 @@ const Tutorials = () => {
                 <TutorialCard key={index} tutorial={tutorial} />
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* CTA */}
           <div className="text-center mt-16 animate-fade-in">

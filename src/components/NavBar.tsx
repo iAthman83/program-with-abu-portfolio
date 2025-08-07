@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code } from "lucide-react";
+import { navItems } from "@/data/contents";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,14 +17,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Tutorials", href: "#tutorials" },
-    { name: "Contact", href: "#contact" },
-  ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -43,12 +37,12 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <Link href={"/"} className="flex items-center gap-3">
             <div className="p-2 bg-primary rounded-lg">
               <Code className="h-6 w-6 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold">Abu Athman</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -56,7 +50,7 @@ const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group cursor-pointer"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -68,7 +62,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Button
               onClick={() => scrollToSection("#contact")}
-              className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary"
+              className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary cursor-pointer"
             >
               Let&apos;s Talk
             </Button>
