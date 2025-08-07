@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+// import { Input } from "@/components/ui/input";
+// import { Textarea } from "@/components/ui/textarea";
+// import { Label } from "@/components/ui/label";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  // Send
+} from "lucide-react";
+import Link from "next/link";
 
 const Contact = () => {
   return (
@@ -39,8 +45,8 @@ const Contact = () => {
                   <ContactItem
                     icon={Phone}
                     label="Phone"
-                    value="+1 (555) 123-4567"
-                    href="tel:+15551234567"
+                    value="+256 783 373 764"
+                    href="tel:+256783373764"
                   />
                   <ContactItem
                     icon={MapPin}
@@ -51,7 +57,7 @@ const Contact = () => {
               </Card>
 
               {/* Availability card */}
-              <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+              {/* <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                   <span className="font-semibold">
@@ -65,12 +71,30 @@ const Contact = () => {
                 <Button className="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary">
                   Schedule a Call
                 </Button>
-              </Card>
+              </Card> */}
             </div>
 
             {/* Contact form */}
             <div className="lg:col-span-2 animate-fade-in-right">
-              <Card className="p-8 bg-card border-border/50">
+              {/* Availability card */}
+              <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                  <span className="font-semibold">
+                    Available for New Projects
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">
+                  I'm currently accepting new freelance projects and full-time
+                  opportunities.
+                </p>
+                <Link href={"tel:+256783373764"}>
+                  <Button className="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary cursor-pointer">
+                    Schedule a Call
+                  </Button>
+                </Link>
+              </Card>
+              {/* <Card className="p-8 bg-card border-border/50">
                 <h3 className="text-xl font-semibold mb-6">
                   Send Me a Message
                 </h3>
@@ -132,7 +156,7 @@ const Contact = () => {
                     Send Message
                   </Button>
                 </form>
-              </Card>
+              </Card> */}
             </div>
           </div>
 
@@ -148,16 +172,18 @@ const Contact = () => {
                 to life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary">
-                  <Mail className="mr-2 h-5 w-5" />
-                  Email Me Directly
-                </Button>
-                <Button
+                <Link href={"mailto:abuathman83@gmail.com"}>
+                  <Button className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary">
+                    <Mail className="mr-2 h-5 w-5" />
+                    Email Me Directly
+                  </Button>
+                </Link>
+                {/* <Button
                   variant="outline"
                   className="hover:bg-primary hover:text-primary-foreground"
                 >
                   View My Work
-                </Button>
+                </Button> */}
               </div>
             </Card>
           </div>
