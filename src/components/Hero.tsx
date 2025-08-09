@@ -103,7 +103,7 @@ const Hero = () => {
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 p-1 animate-glow">
                 <div className="w-full h-full rounded-3xl bg-card overflow-hidden">
                   <Image
-                    src="https://images.pexels.com/photos/15371914/pexels-photo-15371914.jpeg"
+                    src="https://images.pexels.com/photos/33369425/pexels-photo-33369425.png"
                     width={500}
                     height={500}
                     alt="Abu Athman - Full Stack Developer"

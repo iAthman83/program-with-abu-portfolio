@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,6 +17,7 @@ const Tutorials = () => {
       publishedAt: "2 years ago",
       tags: ["React", "Firebase"],
       featured: true,
+      link: "https://www.youtube.com/embed/b43uPnSM2Ow",
     },
     {
       title: "ReactJS Redux Crash Course: Build a Simple Todo List",
@@ -28,6 +30,7 @@ const Tutorials = () => {
       publishedAt: "2 years ago",
       tags: ["React.JS", "Redux"],
       featured: true,
+      link: "https://www.youtube.com/embed/fEWzDX7BuwU",
     },
     {
       title: "Advanced TypeScript Patterns",
@@ -124,7 +127,7 @@ const Tutorials = () => {
             <h3 className="text-2xl font-semibold mb-8 text-center">
               Featured Tutorial
             </h3>
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-8 h-[40rem] lg:h-[25rem]">
               {featuredTutorials.map((tutorial, index) => (
                 <FeaturedTutorialCard key={index} tutorial={tutorial} />
               ))}
@@ -145,7 +148,12 @@ const Tutorials = () => {
 
           {/* CTA */}
           <div className="text-center mt-16 animate-fade-in">
-            <Button className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary transform hover:scale-105 transition-all duration-300">
+            <Button
+              className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary transform hover:scale-105 transition-all duration-300 cursor-pointer"
+              onClick={() =>
+                window.open("https://youtube.com/@programwithabu", "_blank")
+              }
+            >
               <Play className="mr-2 h-5 w-5" />
               Subscribe to My Channel
             </Button>
@@ -157,62 +165,15 @@ const Tutorials = () => {
 };
 
 const FeaturedTutorialCard = ({ tutorial }: { tutorial: any }) => (
-  <Card className="group overflow-hidden bg-card hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-border/50">
-    <div className="relative overflow-hidden">
-      <img
-        src={tutorial.thumbnail}
-        alt={tutorial.title}
-        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-        <Button
-          size="lg"
-          className="bg-primary hover:bg-primary/90 rounded-full h-16 w-16 p-0"
-        >
-          <Play className="h-8 w-8" />
-        </Button>
-      </div>
-      <div className="absolute bottom-4 right-4 bg-black/80 text-white px-2 py-1 rounded text-sm">
-        {tutorial.duration}
-      </div>
-    </div>
-
-    <div className="p-6">
-      <h4 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-        {tutorial.title}
-      </h4>
-      <p className="text-muted-foreground mb-4 leading-relaxed">
-        {tutorial.description}
-      </p>
-
-      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-        <div className="flex items-center gap-1">
-          <Users className="h-4 w-4" />
-          {tutorial.views} views
-        </div>
-        <div className="flex items-center gap-1">
-          <Calendar className="h-4 w-4" />
-          {tutorial.publishedAt}
-        </div>
-      </div>
-
-      <div className="flex flex-wrap gap-2 mb-4">
-        {tutorial.tags.map((tag: string, index: number) => (
-          <Badge
-            key={index}
-            variant="secondary"
-            className="bg-primary/10 text-primary"
-          >
-            {tag}
-          </Badge>
-        ))}
-      </div>
-
-      <Button className="w-full group">
-        <Play className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-        Watch Tutorial
-      </Button>
-    </div>
+  <Card className="group overflow-hidden bg-card hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-border/50 h-full">
+    <iframe
+      src={tutorial.link}
+      title={tutorial.title}
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      className="w-full h-full"
+    ></iframe>
   </Card>
 );
 

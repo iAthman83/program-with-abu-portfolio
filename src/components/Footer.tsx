@@ -84,7 +84,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 cursor-pointer"
                   >
                     {link.name}
                   </button>
@@ -100,7 +100,7 @@ const Footer = () => {
               Subscribe to my YouTube channel for the latest tutorials and tips.
             </p>
             <Button
-              className="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary"
+              className="w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary cursor-pointer"
               onClick={() =>
                 window.open("https://www.youtube.com/@programwithabu", "_blank")
               }
@@ -120,12 +120,12 @@ const Footer = () => {
               <span>and lots of coffee</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <button className="hover:text-primary transition-colors duration-300">
+              {/* <button className="hover:text-primary transition-colors duration-300">
                 Privacy Policy
               </button>
               <button className="hover:text-primary transition-colors duration-300">
                 Terms of Service
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
